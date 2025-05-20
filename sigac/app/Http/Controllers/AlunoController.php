@@ -5,19 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Aluno;
+use App\Models\Curso;
+use App\Models\Turma;
 
 class AlunoController extends Controller
 {
 
-    public function index()
-    {
+    public function index(){
         $alunos = Aluno::all();
         return view('aluno.index')->with(['alunos' => $alunos]);
     }
 
     public function create()
     {
-        return view('aluno.create');
+        $cursos = Curso::all();
+        $turmas = Turma::all();
+        return view('aluno.create', compact('cursos', 'turmas'));
     }
 
     public function store(Request $request)
