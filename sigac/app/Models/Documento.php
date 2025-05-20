@@ -13,7 +13,7 @@ class Documento extends Model
 {
     use softDeletes;
 
-    protected $table = 'documento';
+    protected $table = 'documentos';
 
     protected $fillable = [
         'url',

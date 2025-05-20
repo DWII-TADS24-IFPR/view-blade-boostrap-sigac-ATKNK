@@ -11,7 +11,7 @@ class Curso extends Model
 {
     use softDeletes;
 
-    protected $table = 'curso';
+    protected $table = 'cursos';
 
     protected $fillable = [
         'nome',

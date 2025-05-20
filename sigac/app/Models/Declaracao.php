@@ -12,7 +12,7 @@ class Declaracao extends Model
 {
     use softDeletes;
 
-    protected $table = 'declaracao';
+    protected $table = 'declaracoes';
 
     protected $fillable = [
         'hash',
