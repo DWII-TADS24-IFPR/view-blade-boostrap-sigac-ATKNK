@@ -1,3 +1,29 @@
-<div>
-    <!-- Let all your things have their places; let each part of your business have its time. - Benjamin Franklin -->
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @vite(['resources/js/app.js'])
+
+  <title>SIGAC</title>
+</head>
+<body>
+      @include('layout.navbar')
+    <div class="container">
+      <h1>Lista de Documentos:</h1>
+      @foreach ($documentos as $documento)
+        <div>
+          <h2>{{ $documento->url }}</h2>
+          <p>Descrição: {{ $documento->descricao }}</p>
+          <p>Horas de Entrada: {{ $documento->horas_in }}</p>
+          <p>Horas de Saída: {{ $documento->horas_out }}</p>
+          <p>Comentario: {{ $documento->comentario}}</p>
+          <p>Categoria: {{ $documento->categoria->nome }}</p>
+        </div>
+      @endforeach
+    </div>
+        <div class="container">
+      @include('layout.footer')
+    </div>
+</body>
+</html>

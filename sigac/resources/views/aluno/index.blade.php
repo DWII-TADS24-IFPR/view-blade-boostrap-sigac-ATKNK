@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite(['resources/js/app.js'])
 
-  <title>Document</title>
+  <title>SIGAC</title>
 </head>
 <body>
-    <div class="container">
       @include('layout.navbar')
-    </div>
     <div class="container">
       <h1>Lista de Alunos:</h1>
       @foreach ($alunos as $aluno)
@@ -18,6 +16,8 @@
           <h2>{{ $aluno->nome }}</h2>
           <p>CPF: {{ $aluno->cpf }}</p>
           <p>Email: {{ $aluno->email }}</p>
+          <p>Curso: {{ $aluno->curso->nome}}</p>
+          <p>Turma: {{ $aluno->turma->ano}}</p>
         </div>
       @endforeach
     </div>
