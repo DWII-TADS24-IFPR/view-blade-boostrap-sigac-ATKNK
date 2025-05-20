@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comprovante', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
-            $table->double('horas');
-            $table->string('atividade');
-            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
-            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('nome');
+            $table->double('maximo_horas');
+            $table->foreignId('curso_id')->constrained('cursos')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comprovante');
+        Schema::dropIfExists('categorias');
     }
 };

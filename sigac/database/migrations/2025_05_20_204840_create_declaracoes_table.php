@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nivel', function (Blueprint $table) {
+        Schema::create('declaracoes', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
+            $table->string('hash');
+            $table->date('data');
+            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
+            $table->foreignId('comprovante_id')->constrained('comprovantes')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nivel');
+        Schema::dropIfExists('declaracoes');
     }
 };

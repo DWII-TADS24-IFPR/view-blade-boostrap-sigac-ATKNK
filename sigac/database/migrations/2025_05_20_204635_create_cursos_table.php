@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('turma', function (Blueprint $table) {
+        Schema::create('cursos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('curso_id')->constrained('cursos')->onDelete('cascade');
-            $table->integer('ano');
+            $table->string('nome');
+            $table->string('sigla');
+            $table->double('total_horas');
+            $table->foreignId('nivel_id')->constrained('niveis')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('turma');
+        Schema::dropIfExists('cursos');
     }
 };

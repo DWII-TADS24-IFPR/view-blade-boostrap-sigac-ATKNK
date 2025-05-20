@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('curso', function (Blueprint $table) {
+        Schema::create('comprovantes', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('sigla');
-            $table->double('total_horas');
-            $table->foreignId('nivel_id')->constrained('niveis')->onDelete('cascade');
+            $table->double('horas');
+            $table->string('atividade');
+            $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
+            $table->foreignId('aluno_id')->constrained('alunos')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('curso');
+        Schema::dropIfExists('comprovantes');
     }
 };
