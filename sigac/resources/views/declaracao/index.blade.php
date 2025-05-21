@@ -10,6 +10,7 @@
 <body>
       @include('layout.navbar')
     <div class="container">
+      <a type="link" class="btn btn-primary" href="/declaracoes/create">Criar Declaração</a>
       <h1>Lista de Declarações:</h1>
       @foreach ($declaracoes as $declaracao)
         <div>

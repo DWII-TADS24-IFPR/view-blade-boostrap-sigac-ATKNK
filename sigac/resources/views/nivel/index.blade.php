@@ -10,6 +10,7 @@
 <body>
       @include('layout.navbar')
     <div class="container">
+      <a type="link" class="btn btn-primary" href="/niveis/create">Criar Nivel</a>
       <h1>Lista de Níveis:</h1>
       @foreach ($niveis as $nivel)
         <div>

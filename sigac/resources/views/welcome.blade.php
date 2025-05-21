@@ -12,7 +12,14 @@
 <body>
     @include('layout.navbar')
     <div class="container">
-        
+        <a type="link" class="btn btn-primary" href="/alunos/index">Aluno</a>
+        <a type="link" class="btn btn-primary" href="/categorias/index">Categoria</a>
+        <a type="link" class="btn btn-primary" href="/comprovantes/index">Comprovante</a>
+        <a type="link" class="btn btn-primary" href="/cursos/index">Curso</a>
+        <a type="link" class="btn btn-primary" href="/declaracoes/index">Declaração</a>
+        <a type="link" class="btn btn-primary" href="/documentos/index">Documento</a>
+        <a type="link" class="btn btn-primary" href="/niveis/index">Nível</a>
+        <a type="link" class="btn btn-primary" href="/turmas/index">Turma</a>
     </div>
     @include('layout.footer')
 </body>

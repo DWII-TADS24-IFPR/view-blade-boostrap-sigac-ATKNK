@@ -10,6 +10,7 @@
 <body>
       @include('layout.navbar')
     <div class="container">
+      <a type="link" class="btn btn-primary" href="/documentos/create">Criar Documentos</a>
       <h1>Lista de Documentos:</h1>
       @foreach ($documentos as $documento)
         <div>

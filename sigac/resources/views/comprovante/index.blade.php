@@ -10,6 +10,7 @@
 <body>
       @include('layout.navbar')
     <div class="container">
+      <a type="link" class="btn btn-primary" href="/comprovantes/create">Criar Comprovante</a>
       <h1>Lista de Comprovantes:</h1>
       @foreach ($comprovantes as $comprovante)
         <div>

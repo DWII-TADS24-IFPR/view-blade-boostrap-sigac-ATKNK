@@ -10,6 +10,7 @@
 <body>
       @include('layout.navbar')
     <div class="container">
+      <a type="link" class="btn btn-primary" href="/cursos/create">Criar Curso</a>
       <h1>Lista de Cursos:</h1>
       @foreach ($cursos as $curso)
         <div>
