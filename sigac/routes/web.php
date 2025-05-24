@@ -19,6 +19,8 @@ Route::get('alunos/index', [AlunoController::class, 'index'])->name('aluno.index
 Route::post('alunos', [AlunoController::class, 'store'])->name('aluno.store');
 Route::get('alunos/create', [AlunoController::class, 'create'])->name('aluno.create');
 Route::get('alunos/{id}', [AlunoController::class, 'show'])->name('aluno.show');
+Route::get('alunos/{id}/edit', [AlunoController::class, 'edit'])->name('aluno.edit');
+Route::put('alunos/{id}', [AlunoController::class, 'update'])->name('aluno.update');
 
 Route::get('categorias/index', [CategoriaController::class, 'index'])->name('categoria.index');
 Route::post('categorias', [CategoriaController::class, 'store'])->name('categoria.store');
@@ -49,9 +51,10 @@ Route::get('niveis/index', [NivelController::class, 'index'])->name('nivel.index
 Route::post('niveis', [NivelController::class, 'store'])->name('nivel.store');
 Route::get('niveis/create', [NivelController::class, 'create'])->name('nivel.create');
 Route::get('niveis/{id}', [NivelController::class, 'show'])->name('nivel.show');
+Route::get('niveis/{id}/edit', [NivelController::class, 'edit'])->name('nivel.edit');
+Route::put('niveis/{id}', [NivelController::class, 'update'])->name('nivel.update');
 
 Route::get('turmas/index', [TurmaController::class, 'index'])->name('turma.index');
 Route::post('turmas', [TurmaController::class, 'store'])->name('turma.store');
 Route::get('turmas/create', [TurmaController::class, 'create'])->name('turma.create');
 Route::get('turmas/{id}', [TurmaController::class, 'show'])->name('turma.show');
-

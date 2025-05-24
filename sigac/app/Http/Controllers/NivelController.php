@@ -27,4 +27,17 @@ class NivelController extends Controller
 
         return redirect()->route('nivel.index')->with('success', 'Nivel criado com sucesso!');
     }
+
+    public function edit($id){
+        $nivel = Nivel::find($id);
+        return view('nivel.edit', compact('nivel'));
+    }
+
+    public function update(Request $request, $id){
+        $nivel = Nivel::find($id);
+        $nivel->update($request->all());
+        $nivel->save();
+
+        return redirect()->route('nivel.index')->with('success', 'Nivel atualizado com sucesso!');
+    }
 }

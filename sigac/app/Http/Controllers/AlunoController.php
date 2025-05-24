@@ -25,6 +25,17 @@ class AlunoController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'cpf' => 'required|string|max:14',
+            'email' => 'required|string|email|max:255|unique:alunos',
+            'senha' => 'required|string|min:8',
+            'user_id' => 'required|integer',
+            'curso_id' => 'required|integer',
+            'turma_id' => 'required|integer',
+        ]);
+
         $nome = $request->nome;
         $cpf = $request->cpf;
         $email = $request->email;
@@ -45,5 +56,31 @@ class AlunoController extends Controller
         $aluno->save();
 
         return redirect()->route('aluno.index')->with('success', 'Aluno criado com sucesso!');
+    }
+
+    public function edit($id){
+        $aluno = Aluno::find($id);
+        $cursos = Curso::all();
+        $turmas = Turma::all();
+        return view('aluno.edit', compact('aluno', 'cursos', 'turmas'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'cpf' => 'required|string|max:14',
+            'email' => 'required|string|email|max:255|unique:alunos,email,'.$id,
+            'senha' => 'required|string|min:8',
+            'user_id' => 'required|integer',
+            'curso_id' => 'required|integer',
+            'turma_id' => 'required|integer',
+        ]);
+
+        $aluno = Aluno::find($id);
+
+        $aluno->update($request->all());
+        $aluno->save();
+
+        return redirect()->route('aluno.index')->with('success', 'Aluno atualizado com sucesso!');
     }
 }

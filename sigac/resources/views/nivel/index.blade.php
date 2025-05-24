@@ -16,6 +16,8 @@
         <div>
           <h2>{{ $nivel->nome }}</h2>
         </div>
+        
+        <a type="link" class="btn btn-primary" href="/niveis/{{ $nivel->id }}/edit">Editar</a>
       @endforeach
     </div>
         <div class="container">

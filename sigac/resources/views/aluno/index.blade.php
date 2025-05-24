@@ -23,6 +23,7 @@
                 <p>Email: {{ $aluno->email }}</p>
                 <p>Curso: {{ $aluno->curso->nome }}</p>
                 <p>Turma: {{ $aluno->turma->ano }}</p>
+                <a type="link" class="btn btn-primary" href="/alunos/{{ $aluno->id }}/edit">Editar</a>
             </div>
         @endforeach
         
